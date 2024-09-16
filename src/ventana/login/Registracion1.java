@@ -12,7 +12,7 @@ public class Registracion1 extends JDialog {
     private JTextField tfDui;
     private JButton btnRegistrarse;
     private JButton btnCancelar;
-    private JPasswordField passwordField1;
+    private JPasswordField pfContraseña;
 
     public Registracion1(JFrame parent) {
         setTitle("Registracion");
