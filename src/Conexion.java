@@ -1,46 +1,40 @@
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 public class Conexion
 {
-    String bd = "prime_cinema";
-    String url = "jdbc:mysql://localhost:3306/";
-    String user = "root";
-    String password = "Carta.345617";
-    String driver = "com.mysql.cj.jdbc.Driver";
-    Connection cx;
-    public Conexion(String bd)
-    {
-        this.bd = bd;
-    }
-    public Conexion connectar()
-    {
+    public static Connection ConectarBD(String bd){
+        Connection conexion;
+        String host = "jdbc:mysql://localhost:3306/";
+        String user = "root";
+        String password = "123456";
+
+        System.out.println("Conectando...");
         try {
-            Class.forName(driver);
-            System.out.println("Conexion establecida");
-        } catch (ClassNotFoundException e) {
-            System.out.println("No se puede establecer el driver");
-            throw new RuntimeException(e);
-        }
-        try {
-            cx = DriverManager.getConnection(url+bd,user,password);
-            System.out.println("Conexion establecida");
+            conexion = DriverManager.getConnection(host+bd,user,password);
+            System.out.println("Conectado");
         } catch (SQLException e) {
-            System.out.println("No se puede establecer el driver");
+            System.out.println(e.getMessage());
             throw new RuntimeException(e);
         }
-        return this;
+
+        return conexion;
     }
-    public void desconect()
-    {
+
+    public static void Desconectar(Connection conexion){
         try {
-            cx.close();
+            conexion.close();
+            System.out.println("Desconectado");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-    public static void main(String[]args)
+
+    public static void main(String[] args)
     {
-        Conexion cx = new Conexion("prime_cinema");
-        cx.connectar();
+        Connection bd = ConectarBD("primecinema");
+        Desconectar(bd);
     }
 }
 
