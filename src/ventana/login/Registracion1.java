@@ -34,7 +34,7 @@ public class Registracion1 extends JDialog {
             dispose();
         });
 
-        setVisible(true); // Mostrar el diálogo
+        setVisible(true);
     }
 
     public static void main(String[] args) {

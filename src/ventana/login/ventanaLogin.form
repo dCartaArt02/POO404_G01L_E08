@@ -31,7 +31,7 @@
           <text value="Usuario"/>
         </properties>
       </component>
-      <component id="cbcf6" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+      <component id="cbcf6" class="javax.swing.JTextField" binding="txUsuario">
         <constraints>
           <grid row="2" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -50,7 +50,7 @@
           <text value="Contraseña"/>
         </properties>
       </component>
-      <component id="47c2a" class="javax.swing.JPasswordField" binding="passwordField1" default-binding="true">
+      <component id="47c2a" class="javax.swing.JPasswordField" binding="pfContraseña">
         <constraints>
           <grid row="3" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -60,7 +60,7 @@
           <font size="16"/>
         </properties>
       </component>
-      <component id="eb1ea" class="javax.swing.JButton" binding="registrarseButton" default-binding="true">
+      <component id="eb1ea" class="javax.swing.JButton" binding="btnRegistrarse">
         <constraints>
           <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -69,7 +69,7 @@
           <text value="Registrarse"/>
         </properties>
       </component>
-      <component id="d58b1" class="javax.swing.JButton" binding="ingresarButton" default-binding="true">
+      <component id="d58b1" class="javax.swing.JButton" binding="btnIngresar">
         <constraints>
           <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -78,7 +78,7 @@
           <text value="Ingresar"/>
         </properties>
       </component>
-      <component id="c7de5" class="javax.swing.JButton" binding="cancelarButton" default-binding="true">
+      <component id="c7de5" class="javax.swing.JButton" binding="btnCancelar">
         <constraints>
           <grid row="5" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
