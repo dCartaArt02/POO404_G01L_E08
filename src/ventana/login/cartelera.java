@@ -7,7 +7,7 @@ public class cartelera extends JFrame {
 
     private JPanel cartelerapnl;
     private JComboBox Opcionpeli;
-    private JButton button1;
+    private JButton ButtoSelect;
     private JLabel peli1;
     private JLabel peli2;
     private JLabel peli3;
