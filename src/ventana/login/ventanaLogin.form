@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="ventana.login.ventanaLogin">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+    <constraints>
+      <xy x="102" y="310" width="543" height="179"/>
+    </constraints>
+    <properties>
+      <background color="-6730585"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="9e1aa" class="javax.swing.JLabel">
+        <constraints/>
+        <properties>
+          <text value="Usuario"/>
+        </properties>
+      </component>
+      <component id="44b2c" class="javax.swing.JTextField" binding="txUsuario">
+        <constraints/>
+        <properties>
+          <columns value="40"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="d60c2" class="javax.swing.JLabel">
+        <constraints/>
+        <properties>
+          <text value="Password"/>
+        </properties>
+      </component>
+      <component id="a8be7" class="javax.swing.JPasswordField" binding="passwordField1" default-binding="true">
+        <constraints/>
+        <properties>
+          <columns value="46"/>
+        </properties>
+      </component>
+      <component id="2744e" class="javax.swing.JButton" binding="INGRESARButton" default-binding="true">
+        <constraints/>
+        <properties>
+          <text value="INGRESAR"/>
+        </properties>
+      </component>
+      <component id="d57d7" class="javax.swing.JButton" binding="REGISTRARTEButton" default-binding="true">
+        <constraints/>
+        <properties>
+          <text value="REGISTRARTE"/>
+        </properties>
+      </component>
+      <component id="5621d" class="javax.swing.JButton" binding="SALIRButton" default-binding="true">
+        <constraints/>
+        <properties>
+          <text value="SALIR"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
