@@ -1,7 +1,6 @@
 package Calcular_Cambio;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,6 +8,14 @@ public class CalcularCambioGUI extends JFrame {
     private JTextField txtTotalBoletas;
     private JTextField txtDineroEntregado;
     private JTextArea txtResultado;
+    private JPanel pnlcalcular;
+    private JLabel calculadoraicono;
+    private JTextField lblboletas;
+    private JTextField lblentregado;
+    private JButton btncambio;
+    private JLabel titulo1;
+    private JLabel titulo2;
+    private JTextArea txtresultado;
 
     public CalcularCambioGUI() {
         initialize();
@@ -16,51 +23,21 @@ public class CalcularCambioGUI extends JFrame {
 
     private void initialize() {
         setTitle("Calculadora de Cambio");
-        setSize(400, 300);
+        setSize(500, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.HORIZONTAL;
+        setLocationRelativeTo(null);
+        setContentPane(pnlcalcular);
+
+        setVisible(true);
+
+
 
         // Etiquetas y campos de entrada
-        JLabel lblTotalBoletas = new JLabel("Valor Total de Boletas:");
-        txtTotalBoletas = new JTextField(15);
 
-        JLabel lblDineroEntregado = new JLabel("Dinero Entregado:");
-        txtDineroEntregado = new JTextField(15);
 
-        JButton btnCalcularCambio = new JButton("Calcular Cambio");
-        txtResultado = new JTextArea(5, 30);
-        txtResultado.setEditable(false);
-        txtResultado.setLineWrap(true);
-        txtResultado.setWrapStyleWord(true);
-        JScrollPane scrollPane = new JScrollPane(txtResultado);
 
-        // Configurar el diseño
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.insets = new Insets(10, 10, 5, 10);
-        add(lblTotalBoletas, gbc);
 
-        gbc.gridx = 1;
-        add(txtTotalBoletas, gbc);
-
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        add(lblDineroEntregado, gbc);
-
-        gbc.gridx = 1;
-        add(txtDineroEntregado, gbc);
-
-        gbc.gridx = 0;
-        gbc.gridy = 2;
-        gbc.gridwidth = 2;
-        add(btnCalcularCambio, gbc);
-
-        gbc.gridy = 3;
-        add(scrollPane, gbc);
-
-        btnCalcularCambio.addActionListener(new ActionListener() {
+        btncambio.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 calcularCambio();
@@ -70,17 +47,20 @@ public class CalcularCambioGUI extends JFrame {
 
     private void calcularCambio() {
         try {
-            double totalBoletas = Double.parseDouble(txtTotalBoletas.getText());
-            double dineroEntregado = Double.parseDouble(txtDineroEntregado.getText());
+            double totalBoletas = Double.parseDouble(lblboletas.getText());
+            double dineroEntregado = Double.parseDouble(lblentregado.getText());
 
             if (dineroEntregado < totalBoletas) {
                 txtResultado.setText("El dinero entregado es insuficiente.");
             } else {
                 double cambio = dineroEntregado - totalBoletas;
-                txtResultado.setText(String.format("El cambio a entregar es: $%.2f", cambio));
+                txtresultado.setText(String.format("El cambio a entregar es: $%.2f", cambio));
             }
         } catch (NumberFormatException e) {
-            txtResultado.setText("Por favor, ingrese valores numéricos válidos.");
+            txtresultado.setText("Por favor, ingrese valores numéricos válidos.");
         }
+    }
+    public static void main(String[] args) {
+        new CalcularCambioGUI();
     }
 }
