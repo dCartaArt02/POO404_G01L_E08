@@ -18,7 +18,7 @@ public class cartelera extends JFrame {
     private JLabel peli8;
 
     public cartelera() {
-        this.setSize(1100, 900);
+        this.setSize(1100, 910);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(cartelerapnl);
         this.setTitle("Cartelera");
