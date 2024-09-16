@@ -41,7 +41,7 @@ public class ventanaLogin extends JFrame {
             if (validarLogin()) {  // Llamar al método que valida el login
                 JOptionPane.showMessageDialog(null, "¡Ingreso exitoso!");
                 dispose();  // Cerrar la ventana de login
-                Main.abrirInicio();  // Llamar al método para abrir Inicio
+                Main.abrirCartelera();  // Llamar al método para abrir Inicio
             }
         });
 

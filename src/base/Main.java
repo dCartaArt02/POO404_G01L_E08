@@ -22,7 +22,7 @@ public class Main {
             return;
         }
     }
-    public static void abrirInicio() {
+    public static void abrirCartelera() {
         // Método para abrir la ventana Inicio después de un ingreso exitoso
         SwingUtilities.invokeLater(() -> new cartelera());
     }

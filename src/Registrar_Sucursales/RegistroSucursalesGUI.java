@@ -1,97 +1,113 @@
 package Registrar_Sucursales;
 
+import ventana.login.Clases.Conexion;
+import ventana.login.cartelera; // Importar la clase cartelera
+
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class RegistroSucursalesGUI extends JFrame {
-    private List<Sucursal> sucursales;
     private JTextField txtNombre;
     private JTextField txtEncargado;
     private JTextField txtDireccion;
     private JTextField txtTelefono;
+    private JButton btnRegistrar;
+    private JPanel RegistroSucursalesPanel;
+    private JButton cancelarButton;
 
-    public RegistroSucursalesGUI() {
-        sucursales = new ArrayList<>();
-        initialize();
+    private Connection conexion;
+
+    // Constructor que recibe la conexión a la base de datos
+    public RegistroSucursalesGUI(Connection conexion) {
+        super("Registro de Sucursales");
+
+        // Asignar la conexión a la variable local
+        this.conexion = conexion;
+
+        // Establecer el panel como el contenido de la ventana
+        setContentPane(RegistroSucursalesPanel);
+
+        // Configurar la ventana
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(650, 350);
+        setLocationRelativeTo(null); // Centrar la ventana
+        setVisible(true);
+
+        // Agregar funcionalidad a los botones
+        addActionListeners();
     }
 
-    private void initialize() {
-        setTitle("Registro de Sucursales");
-        setSize(600, 150);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new FlowLayout());
-
-        JLabel lblNombre = new JLabel("Nombre:");
-        txtNombre = new JTextField(20);
-
-        JLabel lblEncargado = new JLabel("Encargado:");
-        txtEncargado = new JTextField(20);
-
-        JLabel lblDireccion = new JLabel("Dirección:");
-        txtDireccion = new JTextField(20);
-
-        JLabel lblTelefono = new JLabel("Teléfono:");
-        txtTelefono = new JTextField(10);
-
-        JButton btnRegistrar = new JButton("Registrar Sucursal");
-        JButton btnMostrarSucursales = new JButton("Mostrar Sucursales");
-        JButton btnSalir = new JButton("Salir");
-
-        add(lblNombre);
-        add(txtNombre);
-        add(lblEncargado);
-        add(txtEncargado);
-        add(lblDireccion);
-        add(txtDireccion);
-        add(lblTelefono);
-        add(txtTelefono);
-        add(btnRegistrar);
-        add(btnMostrarSucursales);
-        add(btnSalir);
-
+    private void addActionListeners() {
         btnRegistrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String nombre = txtNombre.getText();
-                String encargado = txtEncargado.getText();
-                String direccion = txtDireccion.getText();
-                String telefono = txtTelefono.getText();
-
-                Sucursal nuevaSucursal = new Sucursal(nombre, encargado, direccion, telefono);
-                sucursales.add(nuevaSucursal);
-                JOptionPane.showMessageDialog(null, "Sucursal registrada:\n" + nuevaSucursal);
-
-                txtNombre.setText("");
-                txtEncargado.setText("");
-                txtDireccion.setText("");
-                txtTelefono.setText("");
+                registrarSucursal();
             }
         });
 
-        btnMostrarSucursales.addActionListener(new ActionListener() {
+        // Agregar funcionalidad al botón de cancelar
+        cancelarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (sucursales.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "No hay sucursales registradas.");
-                } else {
-                    StringBuilder sb = new StringBuilder("Sucursales registradas:\n");
-                    for (Sucursal sucursal : sucursales) {
-                        sb.append(sucursal).append("\n");
-                    }
-                    JOptionPane.showMessageDialog(null, sb.toString());
-                }
+                regresarACartelera();
             }
         });
+    }
 
-        btnSalir.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+    private void registrarSucursal() {
+        // Recoger los valores del formulario
+        String nombreSucursal = txtNombre.getText();
+        String gerente = txtEncargado.getText();
+        String direccion = txtDireccion.getText();
+        String telefono = txtTelefono.getText();
+
+        // Validar que todos los campos tengan datos
+        if (!nombreSucursal.isEmpty() && !gerente.isEmpty() && !direccion.isEmpty() && !telefono.isEmpty()) {
+            String sql = "INSERT INTO sucursales (nombre_sucursal, gerente, direccion, telefono) VALUES (?, ?, ?, ?)";
+
+            try (PreparedStatement stmt = conexion.prepareStatement(sql)) {
+                stmt.setString(1, nombreSucursal);
+                stmt.setString(2, gerente);
+                stmt.setString(3, direccion);
+                stmt.setString(4, telefono);
+
+                // Ejecutar la inserción
+                stmt.executeUpdate();
+                JOptionPane.showMessageDialog(this, "Sucursal registrada exitosamente.");
+                clearFields(); // Limpiar los campos después de registrar
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Error al registrar la sucursal: " + ex.getMessage());
             }
-        });
+        } else {
+            JOptionPane.showMessageDialog(this, "Todos los campos deben estar llenos.");
+        }
+    }
+
+    private void clearFields() {
+        // Limpiar los campos del formulario
+        txtNombre.setText("");
+        txtEncargado.setText("");
+        txtDireccion.setText("");
+        txtTelefono.setText("");
+    }
+
+    private void regresarACartelera() {
+        // Cerrar la ventana actual
+        this.dispose();
+
+        // Abrir la ventana de cartelera
+        new cartelera();  // Crear una nueva instancia de la cartelera
+    }
+
+    public static void main(String[] args) {
+        // Conectar a la base de datos
+        Connection conexion = Conexion.ConectarBD("primecinema");
+
+        // Crear la GUI
+        SwingUtilities.invokeLater(() -> new RegistroSucursalesGUI(conexion));
     }
 }

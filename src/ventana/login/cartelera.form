@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="ventana.login.cartelera">
-  <grid id="27dc6" binding="cartelerapnl" layout-manager="GridLayoutManager" row-count="11" column-count="17" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="cartelerapnl" layout-manager="GridLayoutManager" row-count="11" column-count="18" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="1144" height="808"/>
+      <xy x="20" y="20" width="1150" height="812"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -15,7 +15,7 @@
       </vspacer>
       <vspacer id="ddba">
         <constraints>
-          <grid row="1" column="16" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="17" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
       <component id="9c7c0" class="javax.swing.JLabel" binding="peli1">
@@ -123,7 +123,7 @@
       </hspacer>
       <vspacer id="9d8c5">
         <constraints>
-          <grid row="5" column="16" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="17" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
       <vspacer id="2bb25">
@@ -222,11 +222,6 @@
           <text value="Invader Zim Enter The Florpus"/>
         </properties>
       </component>
-      <hspacer id="32454">
-        <constraints>
-          <grid row="9" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </hspacer>
       <component id="eee98" class="javax.swing.JLabel">
         <constraints>
           <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -259,30 +254,12 @@
           <text value="No Country For Old Men"/>
         </properties>
       </component>
-      <component id="b815b" class="javax.swing.JComboBox" binding="Opcionpeli">
-        <constraints>
-          <grid row="9" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <model>
-            <item value="American Psycho"/>
-            <item value="Fight Club"/>
-            <item value="Drive"/>
-            <item value="Invader Zim Enter The Florpus"/>
-            <item value="Barbie"/>
-            <item value="Boogie El Aceitoso"/>
-            <item value="LALALAND"/>
-            <item value="No Country For Old men"/>
-          </model>
-          <name value="Seleccione una pelicula"/>
-        </properties>
-      </component>
-      <component id="2abfe" class="javax.swing.JButton" binding="button1" default-binding="true">
+      <component id="2abfe" class="javax.swing.JButton" binding="ingresarButton" default-binding="true">
         <constraints>
           <grid row="9" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Button"/>
+          <text value="Ingresar"/>
         </properties>
       </component>
       <hspacer id="22c56">
@@ -344,6 +321,35 @@
           <grid row="10" column="7" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
+      <component id="b815b" class="javax.swing.JComboBox" binding="Opcionpeli">
+        <constraints>
+          <grid row="9" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <model>
+            <item value="Surcursal"/>
+            <item value="Cine Metro"/>
+            <item value="Cine Plaza Merliot"/>
+            <item value="Cine Multiplaza"/>
+            <item value="Cine Santa Ana"/>
+            <item value="Cine San Miguel"/>
+          </model>
+          <name value="Seleccione una pelicula"/>
+        </properties>
+      </component>
+      <component id="ce605" class="javax.swing.JButton" binding="registarSucursalButton" default-binding="true">
+        <constraints>
+          <grid row="9" column="15" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Registar Sucursal"/>
+        </properties>
+      </component>
+      <hspacer id="cd20e">
+        <constraints>
+          <grid row="9" column="16" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
     </children>
   </grid>
 </form>

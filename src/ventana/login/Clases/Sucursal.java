@@ -2,19 +2,21 @@ package ventana.login.Clases;
 
 public class Sucursal {
     private int idSucursal;
-    private String nombreSucursal;
+    private String nombre_sucursal; // Modificado de nombreSucursal a nombre_sucursal
     private String gerente;
     private String direccion;
     private String telefono;
 
-    public Sucursal(int idSucursal, String nombreSucursal, String gerente, String direccion, String telefono) {
+    // Constructor
+    public Sucursal(int idSucursal, String nombre_sucursal, String gerente, String direccion, String telefono) {
         this.idSucursal = idSucursal;
-        this.nombreSucursal = nombreSucursal;
+        this.nombre_sucursal = nombre_sucursal;
         this.gerente = gerente;
         this.direccion = direccion;
         this.telefono = telefono;
     }
 
+    // Getters y Setters
     public int getIdSucursal() {
         return idSucursal;
     }
@@ -23,12 +25,12 @@ public class Sucursal {
         this.idSucursal = idSucursal;
     }
 
-    public String getNombreSucursal() {
-        return nombreSucursal;
+    public String getNombre_sucursal() {
+        return nombre_sucursal; // Modificado de getNombreSucursal a getNombre_sucursal
     }
 
-    public void setNombreSucursal(String nombreSucursal) {
-        this.nombreSucursal = nombreSucursal;
+    public void setNombre_sucursal(String nombre_sucursal) { // Modificado de setNombreSucursal a setNombre_sucursal
+        this.nombre_sucursal = nombre_sucursal;
     }
 
     public String getGerente() {
@@ -54,4 +56,6 @@ public class Sucursal {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
 }
+
