@@ -1,4 +1,4 @@
-package Clases;
+package ventana.login.Clases;
 
 public class Sucursal {
     private int idSucursal;
