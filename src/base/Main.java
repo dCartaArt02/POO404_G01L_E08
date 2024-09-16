@@ -2,13 +2,14 @@ package base;
 
 import ventana.login.Clases.Conexion;
 import ventana.login.Clases.ventanaLogin;
+import ventana.login.cartelera;
+
 import javax.swing.*;
 import java.sql.Connection;
 
 public class Main {
     public static void main(String[] args) {
         Connection conexion;
-
         try {
             conexion = Conexion.ConectarBD("primecinema");
 
@@ -21,9 +22,8 @@ public class Main {
             return;
         }
     }
-
     public static void abrirInicio() {
         // Método para abrir la ventana Inicio después de un ingreso exitoso
-        SwingUtilities.invokeLater(() -> new Inicio());
+        SwingUtilities.invokeLater(() -> new cartelera());
     }
 }
