@@ -21,9 +21,15 @@ public class Main {
             JOptionPane.showMessageDialog(null, "Error al establecer la conexión: " + e.getMessage());
             return;
         }
+
+
     }
     public static void abrirCartelera() {
         // Método para abrir la ventana Inicio después de un ingreso exitoso
         SwingUtilities.invokeLater(() -> new cartelera());
+    }
+
+    public static void Main(String[] args) {
+
     }
 }

@@ -27,7 +27,6 @@ public class Registracion1 extends JDialog {
         setSize(500, 500);
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 
-        // Acción para el botón REGISTRARSE
         btnRegistrarse.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -43,10 +42,14 @@ public class Registracion1 extends JDialog {
                         tfTelefono.getText()
                 );
 
+
                 // Registrar el usuario
                 UsuarioDAO usuarioDAO = new UsuarioDAO();
+
+
                 if (usuarioDAO.registrarUsuario(conexion, usuario)) {
-                    JOptionPane.showMessageDialog(null, "¡Registro exitoso!");
+
+                    JOptionPane.showMessageDialog(null, "¡Dui repetido!");
                     dispose(); // Cerrar el diálogo
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al registrar el usuario.");
