@@ -1,5 +1,6 @@
 package ventana.login.Clases;
 
+import base.*;
 import javax.swing.*;
 import java.sql.Connection;
 
@@ -37,20 +38,10 @@ public class ventanaLogin extends JFrame {
     private void agregarAcciones() {
         // Acción para el botón INGRESAR
         ingresarButton.addActionListener(e -> {
-            String login = textField1.getText();
-            String contraseña = new String(passwordField1.getPassword());
-
-            // Validar el login contra la base de datos
-            UsuarioDAO usuarioDAO = new UsuarioDAO();
-            Usuario usuario = usuarioDAO.validarLogin(conexion, login, contraseña);
-
-            if (usuario != null) {
-                // Si el usuario es válido
-                JOptionPane.showMessageDialog(null, "¡Ingreso exitoso! Bienvenido, " + usuario.getLogin());
-                // Aquí podrías redirigir a la ventana principal de la aplicación
-            } else {
-                // Si el usuario o la contraseña no son válidos
-                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos.");
+            if (validarLogin()) {  // Llamar al método que valida el login
+                JOptionPane.showMessageDialog(null, "¡Ingreso exitoso!");
+                dispose();  // Cerrar la ventana de login
+                Main.abrirInicio();  // Llamar al método para abrir Inicio
             }
         });
 
@@ -66,11 +57,21 @@ public class ventanaLogin extends JFrame {
         });
     }
 
-    public static void main(String[] args) {
-        // Establecer la conexión a la base de datos
-        Connection conexion = Conexion.ConectarBD("primecinema");
+    public boolean validarLogin() {
+        String login = textField1.getText();
+        String contraseña = new String(passwordField1.getPassword());
 
-        // Crear y mostrar la ventana de login con la conexión
-        SwingUtilities.invokeLater(() -> new ventanaLogin(conexion));
+        // Validar el login contra la base de datos
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        Usuario usuario = usuarioDAO.validarLogin(conexion, login, contraseña);
+
+        if (usuario != null) {
+            // Si el usuario es válido
+            return true;
+        } else {
+            // Si el usuario o la contraseña no son válidos
+            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos.");
+            return false;
+        }
     }
 }
