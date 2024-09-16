@@ -15,16 +15,29 @@ public class Registracion1 extends JDialog {
     private JPasswordField pfContraseña;
 
     public Registracion1(JFrame parent) {
-        setTitle("Registracion");
+        super(parent, "Registro", true);
+        setContentPane(registerPanel);
+        setSize(500, 500);
         setLocationRelativeTo(parent);
-        setVisible(true);
-        this.setSize(500, 500);
-        this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-        this.setContentPane(registerPanel);
-        this.setTitle("Registracion");
-        this.setVisible(true);
-    }
-    public static void main(String[] args)
-    {Registracion1 frm = new Registracion1(null);}
+        setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 
+
+        btnRegistrarse.addActionListener(e -> {
+
+            parent.setVisible(true);
+            dispose();
+        });
+
+
+        btnCancelar.addActionListener(e -> {
+            parent.setVisible(true);
+            dispose();
+        });
+
+        setVisible(true); // Mostrar el diálogo
+    }
+
+    public static void main(String[] args) {
+        new Registracion1(null);
+    }
 }
